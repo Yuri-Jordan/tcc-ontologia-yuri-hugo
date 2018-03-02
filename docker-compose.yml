@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  apilaravel:
+    depends_on:
+      - apiflask
+    build: ./apiLaravel
+    networks:
+      mynet:
+        ipv4_address: 172.25.0.5
+    ports:
+      - "80:80"
+    volumes:
+      - ./apiLaravel:/var/www/html
+      - ./apiLaravel/apache2-laravel.conf:/etc/apache2/sites-available/laravel.conf
+    container_name: apiLaravel
+
+  apiflask:
+    depends_on:
+      - postgres
+    build: ./apiFlask
+    networks:
+      mynet:
+        ipv4_address: 172.25.0.4
+    volumes:
+      - ./:/teste
+    container_name: apiFlask
+
+  postgres:
+    image: postgres:9.6
+    networks:
+      mynet:
+        ipv4_address: 172.25.0.3
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: tcc
+      LC_ALL: C
+    container_name: tccbd
+
+networks:
+  mynet:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.25.0.0/24
