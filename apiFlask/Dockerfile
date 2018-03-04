@@ -1,16 +1,10 @@
-FROM    debian:latest
+FROM alpine
 
-# Install necessary packages, and clear out apt listing to save space.
-RUN apt-get update && \
-    apt-get -y install curl libpq-dev python-dev postgresql-client && \
-    apt-get -y install python build-essential python-pip && \
-    apt-get -y install libblas-dev liblapack-dev gfortran 
+# instala Flask
+RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
+	&& pip2 install --upgrade pip \
+	&& pip2 install flask
 
-RUN mkdir -p /opt/pandas/build/
 
-COPY requirements.txt /opt/pandas/build/requirements.txt
-
-# Install python libraries
-RUN pip install -r /opt/pandas/build/requirements.txt
-
-WORKDIR /
+# compia arquivos de configuração para dentro do container
+COPY nginx.conf /etc/nginx/nginx.conf

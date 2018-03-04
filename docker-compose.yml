@@ -3,7 +3,7 @@ version: '3'
 services:
   apilaravel:
     depends_on:
-      - apiflask
+      - postgres
     build: ./apiLaravel
     networks:
       mynet:
@@ -15,16 +15,18 @@ services:
       - ./apiLaravel/apache2-laravel.conf:/etc/apache2/sites-available/laravel.conf
     container_name: apiLaravel
 
-  apiflask:
-    depends_on:
-      - postgres
-    build: ./apiFlask
-    networks:
-      mynet:
-        ipv4_address: 172.25.0.4
-    volumes:
-      - ./:/teste
-    container_name: apiFlask
+  # apiflask:
+  #   depends_on:
+  #     - postgres
+  #   build: ./apiFlask
+  #   networks:
+  #     mynet:
+  #       ipv4_address: 172.25.0.2
+  #   ports:
+  #     - "8080:8080"
+  #   volumes:
+  #     - ./apiFlask:/app
+  #   container_name: apiFlask
 
   postgres:
     image: postgres:9.6

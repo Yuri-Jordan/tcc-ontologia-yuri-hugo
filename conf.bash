@@ -9,7 +9,7 @@ sleep 5
 # Salva o id do container da api
 idContainer=$(docker ps -aqf "name=apiLaravel")
 # Instala as dependências do Laravel via Composer
-docker exec --workdir /var/www/html $idContainer composer install
+#docker exec --workdir /var/www/html $idContainer composer install
 # Cria gera chave da aplicação
 docker exec --workdir /var/www/html $idContainer php artisan key:generate
 # Cria tabelas no banco
@@ -18,3 +18,5 @@ docker exec --workdir /var/www/html $idContainer php artisan migrate
 #sudo docker exec --workdir /var/www/html/api $idContainer php artisan db:seed
 # Gera as chaves para autenticação OAuth2
 #sudo docker exec --workdir /var/www/html/api $idContainer php artisan passport:install
+
+/bin/bash apiFlask/conf.bash
