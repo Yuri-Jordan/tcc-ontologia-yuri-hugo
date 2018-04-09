@@ -9,7 +9,7 @@ sleep 5
 # Salva o id do container da api
 idContainer=$(docker ps -aqf "name=apiLaravel")
 # Instala as dependências do Laravel via Composer
-docker exec --workdir /var/www/html $idContainer composer install
+docker exec --workdir /var/www/html $idContainer composer install --prefer-dist
 # Cria gera chave da aplicação
 docker exec --workdir /var/www/html $idContainer php artisan key:generate
 # Cria tabelas no banco
