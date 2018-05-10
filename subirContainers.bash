@@ -14,6 +14,7 @@ docker exec --workdir /var/www/html $idContainer composer install --prefer-dist
 docker exec --workdir /var/www/html $idContainer php artisan key:generate
 # Cria tabelas no banco
 docker exec --workdir /var/www/html $idContainer php artisan migrate
+
 # Popula valores padrão em algumas tabelas do banco
 #sudo docker exec --workdir /var/www/html/api $idContainer php artisan db:seed
 # Gera as chaves para autenticação OAuth2
