@@ -1,10 +1,5 @@
 from flask import Flask
-import os
 import json
-
-import ConfigParser
-Config = ConfigParser.ConfigParser()
-Config.read(os.getcwd() + "/env/env.ini")
 
 app = Flask(__name__)
 
@@ -14,6 +9,10 @@ def hello():
 
 @app.route('/twitterTrends')
 def twitterTrends():
+    
+    from env.env import lerEnv
+    
+    Config = lerEnv()
     
     CONSUMER_KEY = Config.get("credenciaisTwitter", "CONSUMER_KEY")
     CONSUMER_SECRET = Config.get("credenciaisTwitter", "CONSUMER_SECRET")
