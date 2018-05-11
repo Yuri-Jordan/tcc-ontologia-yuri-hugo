@@ -1,10 +1,9 @@
-FROM alpine
+FROM ubuntu:latest
 
-# instala Flask
-RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
-	&& pip2 install --upgrade pip \
-	&& pip2 install flask
-
-
-# compia arquivos de configuração para dentro do container
-COPY nginx.conf /etc/nginx/nginx.conf
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["app.py"]

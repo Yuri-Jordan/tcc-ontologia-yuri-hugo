@@ -1,9 +1,5 @@
-docker stop apiFlask
-docker rm apiFlask
+docker stop apiflask
+docker rm apiflask
 
-docker run --name apiFlask --restart=always \
-	-p 8000:80 \
-	-v $(pwd)/apiFlask:/app \
-	-d jazzdd/alpine-flask
-
-docker exec --workdir /usr/lib/python2.7 apiFlask pip install twitter
+docker build -t apiflask ./apiFlask
+docker run --name apiflask -d -p 5000:5000 apiflask

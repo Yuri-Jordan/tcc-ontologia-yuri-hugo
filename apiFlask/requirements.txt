@@ -1,0 +1,6 @@
+flask
+twitter
+numpy
+pandas
+nltk
+psycopg2
