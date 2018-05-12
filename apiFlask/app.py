@@ -31,10 +31,10 @@ def twitterTrends():
 
 @app.route('/testeLimpezaDataset')
 def limpar():
-    
-    from analiseSentimental.analiseSentimental import limpar_texto_dataset 
-    
-    dataset = pandas.read_csv("arquivosTeste/reviewsRestaurantes.tsv", 
+
+    from analiseSentimental.analiseSentimental import limpar_texto_dataset
+
+    dataset = pandas.read_csv("arquivosTeste/reviewsRestaurantes.tsv",
                               delimiter = '\t', quoting=3)
     corpus = limpar_texto_dataset(dataset, 'Review')
     return json.dumps(corpus, indent=1)
