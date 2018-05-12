@@ -32,11 +32,12 @@ def twitterTrends():
 @app.route('/testeLimpezaDataset')
 def limpar():
 
-    from analiseSentimental.analiseSentimental import limpar_texto_dataset
+    from analiseSentimental.analiseSentimental import limpar_texto_dataset, gerar_bag_of_words 
 
     dataset = pandas.read_csv("arquivosTeste/reviewsRestaurantes.tsv",
                               delimiter = '\t', quoting=3)
     corpus = limpar_texto_dataset(dataset, 'Review')
+    corpus = gerar_bag_of_words(corpus)
     return json.dumps(corpus, indent=1)
 
 

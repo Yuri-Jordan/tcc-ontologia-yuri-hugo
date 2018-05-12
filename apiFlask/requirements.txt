@@ -4,3 +4,5 @@ numpy
 pandas
 nltk
 psycopg2
+scipy
+scikit-learn
