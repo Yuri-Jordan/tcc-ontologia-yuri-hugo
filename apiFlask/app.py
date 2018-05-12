@@ -1,5 +1,6 @@
 from flask import Flask
 import json
+import pandas
 
 app = Flask(__name__)
 
@@ -26,6 +27,19 @@ def twitterTrends():
     twitter_trends = twitter_trends(twitter_oauth, 1)
 
     return json.dumps(twitter_trends, indent=1)
+
+
+@app.route('/testeLimpezaDataset')
+def limpar():
+    
+    from analiseSentimental.analiseSentimental import limpar_texto_dataset 
+    
+    dataset = pandas.read_csv("arquivosTeste/reviewsRestaurantes.tsv", 
+                              delimiter = '\t', quoting=3)
+    corpus = limpar_texto_dataset(dataset, 'Review')
+    return json.dumps(corpus, indent=1)
+
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

@@ -1,3 +1,3 @@
 docker-compose down
 
-docker stop apiFlask
+docker stop apiflask
