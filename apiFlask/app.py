@@ -21,7 +21,7 @@ def twitterTrends():
     OAUTH_TOKEN_SECRET = Config.get("credenciaisTwitter", "OAUTH_TOKEN_SECRET")
 
     from autenticacao.autenticacaoTwitter import oauth_login
-    from analiseSentimental.coletarTrendsTwitter import twitter_trends
+    from analiseSentimental.coletarTwitter import twitter_trends
 
     twitter_oauth = oauth_login(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
     twitter_trends = twitter_trends(twitter_oauth, 1)
@@ -36,9 +36,23 @@ def limpar():
 
     dataset = pandas.read_csv("arquivosTeste/reviewsRestaurantes.tsv",
                               delimiter = '\t', quoting=3)
-    corpus = limpar_texto_dataset(dataset, 'Review')
-    corpus = gerar_bag_of_words(corpus)
+    corpus = limpar_texto_dataset(dataset, 'Review', 10)
+    #corpus = gerar_bag_of_words(corpus)
     return json.dumps(corpus, indent=1)
+
+@app.route('/testeNB')
+def testeNB():
+    from analiseSentimental.analiseSentimental import limpar_texto_dataset, gerar_bag_of_words 
+    from analiseSentimental.naiveBayes import classificar_usando_naive_bayes
+    
+    dataset = pandas.read_csv("arquivosTeste/reviewsRestaurantes.tsv",
+                          delimiter = '\t', quoting=3)
+    
+    corpus = limpar_texto_dataset(dataset, 'Review', len(dataset))
+    X = gerar_bag_of_words(corpus)
+    y = dataset["Liked"]
+    
+    return json.dumps(classificar_usando_naive_bayes(X, y), indent=2)
 
 
 
