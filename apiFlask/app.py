@@ -1,13 +1,16 @@
 from flask import Flask
 import json
 import pandas
+from flask.ext.autodoc import Autodoc
 
 app = Flask(__name__)
+auto = Autodoc(app)
 
 @app.route('/')
-def hello():
-    return 'Container Flask'
+def documentation():
+    return auto.html()
 
+@auto.doc()
 @app.route('/twitterTrends')
 def twitterTrends():
 
@@ -28,7 +31,7 @@ def twitterTrends():
 
     return json.dumps(twitter_trends, indent=1)
 
-
+@auto.doc()
 @app.route('/testeLimpezaDataset')
 def limpar():
 
@@ -40,6 +43,7 @@ def limpar():
     #corpus = gerar_bag_of_words(corpus)
     return json.dumps(corpus, indent=1)
 
+@auto.doc()
 @app.route('/testeNB')
 def testeNB():
     from analiseSentimental.analiseSentimental import limpar_texto_dataset, gerar_bag_of_words 
