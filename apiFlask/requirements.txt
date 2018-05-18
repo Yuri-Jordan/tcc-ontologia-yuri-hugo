@@ -1,5 +1,6 @@
 flask
-twitter
+flask-autodoc
+python-twitter
 numpy
 pandas
 nltk
