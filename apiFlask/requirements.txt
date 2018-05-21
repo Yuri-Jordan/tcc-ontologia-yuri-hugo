@@ -4,6 +4,6 @@ python-twitter
 numpy
 pandas
 nltk
-psycopg2
+pymongo
 scipy
 scikit-learn

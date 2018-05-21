@@ -77,7 +77,7 @@ def limpar():
 
     dataset = pandas.read_csv("arquivosTeste/reviewsRestaurantes.tsv",
                               delimiter = '\t', quoting=3)
-    corpus = limpar_texto_dataset(dataset, 'Review', 10)
+    corpus = limpar_texto_dataset(dataset, 'Review', len(dataset))
     #corpus = gerar_bag_of_words(corpus)
     return json.dumps(corpus, indent=1)
 
@@ -94,7 +94,7 @@ def testeNB():
     X = gerar_bag_of_words(corpus)
     y = dataset["Liked"]
 
-    return json.dumps(classificar_usando_naive_bayes(X, y), indent=2)
+    return json.dumps(classificar_usando_naive_bayes(X, y), indent=1)
 
 
 
