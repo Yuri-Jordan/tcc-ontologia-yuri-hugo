@@ -22,11 +22,11 @@ def unir_textos_ao_dataset_tweetSentBR(dataset, listaDeTextos):
     
     return dataset
 
-def coletar_por_termos(twitter_api):
-    return twitter_api.GetSearch(term='teste', raw_query=None, 
+def coletar_por_termos(twitter_api, termos):
+    return twitter_api.GetSearch(term=termos, raw_query=None, 
                                  geocode=None, since_id=None, 
-                                 max_id=None, until=None, 
-                                 since=None, count=10, lang=None, 
+                                 max_id=None, until='2018-05-31', 
+                                 since='2018-05-30', count=1000, lang=None, 
                                  locale=None, result_type='mixed', 
                                  include_entities=None, return_json=True)
     

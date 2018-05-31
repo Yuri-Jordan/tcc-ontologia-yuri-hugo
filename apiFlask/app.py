@@ -48,7 +48,7 @@ def twitterSearch():
 
     twitter_oauth = oauth_login(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 
-    return json.dumps(coletar_por_termos(twitter_oauth), indent=1)
+    return json.dumps(coletar_por_termos(twitter_oauth, ['marina silva']), indent=1)
 
 @app.route('/twitterStreaming')
 def twitterStreaming():

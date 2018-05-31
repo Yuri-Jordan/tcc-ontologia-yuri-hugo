@@ -12,10 +12,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 def limpar_texto_dataset(dataset, coluna, qtdLinhas):
     
     corpus = []
-    
+    #pontuacao = [".",";",":","!","?","/","\\",",","#","@","$","&",")","(","\""]
+                 
     for i in range(0, qtdLinhas):
-    
         linha = re.sub('[^A-Za-zá-ú]', ' ', dataset[coluna][i])
+        linha = dataset[coluna][i].encode('utf-8')
         linha = linha.lower()
         linha = linha.split()
     
@@ -35,7 +36,13 @@ def gerar_bag_of_words(corpus):
     return CountVectorizer().fit_transform(corpus).toarray()
 
 def frase_em_token(frase):
-    return frase.split()
+    
+    tokens = frase.split()
+    pontuacao = [".",";",":","!","?","/","\\",",","#","@","$","&",")","(","\""]
+    for ponto in pontuacao:
+        for palavra in tokens:
+            tokens=[palavra.replace(ponto, '') for palavra in tokens]
+    return tokens
 
 
 def calcularSentimento(texto, dicionario):
