@@ -1,4 +1,4 @@
-
+#================= Coletar do Twitter ========================================== 
 from env.env import lerEnv
 
 Config = lerEnv()
@@ -13,34 +13,38 @@ from analiseSentimental.coletarTwitter import coletar_por_termos
 
 twitter_oauth = oauth_login(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 
-candidato = coletar_por_termos(twitter_oauth, ['jair bolsonaro'])
+candidato = coletar_por_termos(twitter_oauth, ['geraldo alckmin'])
+
+#================= Tratar dados para análise ===================================  
 
 import pandas
 dfCandidato = pandas.DataFrame(candidato['statuses'])
 
-from analiseSentimental.analiseSentimental import limpar_texto_dataset,frase_em_token, calcularSentimento
+from analiseSentimental.analiseSentimental import limpar_texto_dataset
 
-dicionario = pandas.read_csv("arquivosTeste/sentilex-reduzido.txt", header=None)
+corpus = limpar_texto_dataset(dfCandidato, 'text', len(dfCandidato))
 
-corpus = limpar_texto_dataset(dfCandidato, 'text', 3)
+#================= Realizar Análise de Sentimento ==============================  
 
 from analiseSentimental.analiseSentimental import calcularSentimento, frase_em_token
 
-dfCandidato['teste'] = ''
+dicionario = pandas.read_csv("arquivosTeste/sentilex-reduzido.txt", header=None)
 
-for i in range(0, len(corpus)):
+dfCandidato['sentimento'] = ''
+
+for i in range(9, 10):
 
     texto = frase_em_token(corpus[i])
-    dfCandidato['teste'][i] = calcularSentimento(texto, dicionario)
+    dfCandidato['sentimento'][i] = calcularSentimento(texto, dicionario)
     
-    
+#============= Calcular valor de sentimento geral p/ cada candidato ============  
 valorNeutro = 0
 valorPositivo = 0
 valorNegativo = 0
 
-for i in range(0, len(df)):
+for i in range(0, len(dfCandidato)):
     
-    valorSentimento = df['teste'][i]
+    valorSentimento = dfCandidato['sentimento'][i]
     
     if not valorSentimento == '':
     
@@ -50,4 +54,12 @@ for i in range(0, len(df)):
             valorPositivo+=1
         else:
             valorNegativo+=1
+            
+#============= Salvar resultados em CSV =======================================
+            
+dfCandidato.to_csv("resultados/twitter/alckmin.csv", header = True, index = True, encoding = 'utf-8')
+dfCandidato = pandas.read_csv("resultados/twitter/alckmin.csv",index_col=0)
+          
+            
+
         

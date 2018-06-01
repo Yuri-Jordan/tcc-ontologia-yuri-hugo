@@ -12,17 +12,13 @@ from sklearn.feature_extraction.text import CountVectorizer
 def limpar_texto_dataset(dataset, coluna, qtdLinhas):
     
     corpus = []
-    #pontuacao = [".",";",":","!","?","/","\\",",","#","@","$","&",")","(","\""]
                  
     for i in range(0, qtdLinhas):
         linha = re.sub('[^A-Za-zá-ú]', ' ', dataset[coluna][i])
         linha = dataset[coluna][i].encode('utf-8')
         linha = linha.lower()
         linha = linha.split()
-    
-        #stemmer = RSLPStemmer()
-        
-        #linha = [stemmer.stem(palavra)for palavra in linha
+
         linha = [palavra for palavra in linha
                          if not palavra in stopwords.words('portuguese')]
         
@@ -48,18 +44,13 @@ def frase_em_token(frase):
 def calcularSentimento(texto, dicionario):
     
     valorSentimento = 0
-            
-    #texto = ['maldade', 'bondade', 'malabarismo', 'fácil']
                 
     for i in range(0, len(texto)):
-    
-    #print texto[i]
         
         for k in range(0, len(dicionario)):
+            
             if texto[i] == dicionario[0][k]:
-                #print dicionario[1][k]
                 valorSentimento = valorSentimento + dicionario[1][k]
-                #print valorSentimento
     
     return valorSentimento
 
