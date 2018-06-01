@@ -13,7 +13,7 @@ from analiseSentimental.coletarTwitter import coletar_por_termos
 
 twitter_oauth = oauth_login(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 
-candidato = coletar_por_termos(twitter_oauth, ['geraldo alckmin'])
+candidato = coletar_por_termos(twitter_oauth, ['ciro gomes'])
 
 #================= Tratar dados para análise ===================================  
 
@@ -32,7 +32,7 @@ dicionario = pandas.read_csv("arquivosTeste/sentilex-reduzido.txt", header=None)
 
 dfCandidato['sentimento'] = ''
 
-for i in range(10, 20):
+for i in range(0, len(dfCandidato)):
 
     texto = frase_em_token(corpus[i])
     dfCandidato['sentimento'][i] = calcularSentimento(texto, dicionario)
@@ -57,8 +57,8 @@ for i in range(0, len(dfCandidato)):
             
 #============= Salvar resultados em CSV =======================================
             
-dfCandidato.to_csv("resultados/twitter/alckmin.csv", header = True, index = True, encoding = 'utf-8')
-dfCandidato = pandas.read_csv("resultados/twitter/alckmin.csv",index_col=0)
+dfCandidato.to_csv("resultados/twitter/ciro.csv", header = True, index = True, encoding = 'utf-8')
+dfCandidato = pandas.read_csv("resultados/twitter/ciro.csv",index_col=0)
           
             
 
