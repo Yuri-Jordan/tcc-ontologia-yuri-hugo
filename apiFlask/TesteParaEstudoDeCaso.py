@@ -32,7 +32,7 @@ dicionario = pandas.read_csv("arquivosTeste/sentilex-reduzido.txt", header=None)
 
 dfCandidato['sentimento'] = ''
 
-for i in range(9, 10):
+for i in range(10, 20):
 
     texto = frase_em_token(corpus[i])
     dfCandidato['sentimento'][i] = calcularSentimento(texto, dicionario)
