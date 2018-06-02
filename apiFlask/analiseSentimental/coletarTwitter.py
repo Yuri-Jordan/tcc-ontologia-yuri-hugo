@@ -30,8 +30,8 @@ def coletar_por_termos(twitter_api, termos):
                                  locale=None, result_type='mixed', 
                                  include_entities=None, return_json=True)
     
-def coletar_por_streamings(twitter_api):
+def coletar_por_streaming(twitter_api):
     return twitter_api.GetStreamFilter(follow=None, track='teste', 
                                        locations=None, languages='portuguese', 
                                        delimited=None, stall_warnings=None, 
-                                       filter_level=None)
+                                       filter_level='low')
