@@ -34,8 +34,8 @@ def gerar_bag_of_words(corpus):
 
 def frase_em_token(frase):
     
-    tokens = frase.split()
-    pontuacao = [".",";",":","!","?","/","\\",",","#","@","$","&",")","(","\""]
+    tokens = frase
+    pontuacao = [".",";",":","!","?","/","\\",",","#","@","$","&",")","(","\"", "http", "https"]
     for ponto in pontuacao:
         for palavra in tokens:
             tokens=[palavra.replace(ponto, '') for palavra in tokens]
@@ -45,7 +45,7 @@ def limpar_texto_streaming(dataset, coluna):
                  
     for i in range(0, len(dataset)):
         texto = re.sub('[^A-Za-zá-ú]', ' ', dataset[coluna][i])
-        texto = texto.encode('utf-8')
+        texto = dataset[coluna][i].encode('utf-8')
         texto = texto.lower()
         
         texto = texto.split()
@@ -53,11 +53,13 @@ def limpar_texto_streaming(dataset, coluna):
         texto = [palavra for palavra in texto
                          if not palavra in stopwords.words('portuguese')]
         
-        paraRetirar = ['http','https']
+        texto = frase_em_token(texto)
         
-        for elemento in paraRetirar:
-            for palavra in texto:
-                texto = [palavra.replace(elemento, '') for palavra in texto]
+        #paraRetirar = ['http','https']
+        
+        #for elemento in paraRetirar:
+         #   for palavra in texto:
+           #     texto = [palavra.replace(elemento, '') for palavra in texto]
         
         dataset[coluna][i] = " ".join(texto)   
     
@@ -88,6 +90,29 @@ def definir_sentimento_dataset(dataset, dicionario):
         dataset['sentimento'][i] = calcularSentimento(dataset['text'][i], dicionario)
 
     return dataset
+
+def quantidade_sentimento(dataset):
+    
+    dataset = dataset.reset_index()
+    
+    valorNeutro = 0
+    valorPositivo = 0
+    valorNegativo = 0
+    
+    for i in range(0, len(dataset)):
+        
+        valorSentimento = dataset['sentimento'][i]
+        
+        if not valorSentimento == '':
+        
+            if valorSentimento == 0:
+                valorNeutro+=1
+            elif valorSentimento > 0:
+                valorPositivo+=1
+            else:
+                valorNegativo+=1
+
+    return ['positivo - ' +str(valorPositivo), 'neutro - ' + str(valorNeutro), 'negativo - ' + str(valorNegativo)]
 
     
 
