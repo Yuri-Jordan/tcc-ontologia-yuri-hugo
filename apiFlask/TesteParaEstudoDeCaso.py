@@ -122,7 +122,7 @@ map=folium.Map(location=[df['LAT'].mean(),df['LON'].mean()],zoom_start=6,tiles='
 for i in range(0, len(dfCandidato)):
     if str(dfCandidato['coordinates'][i]) != 'nan':
         dfCandidato['coordinates'][i] = ast.literal_eval(dfCandidato['coordinates'][i])
-        folium.Marker(location=[ dfCandidato['coordinates'][i]['coordinates'][1], dfCandidato['coordinates'][31]['coordinates'][0]]).add_to(map)
+        folium.Marker(location=[ dfCandidato['coordinates'][i]['coordinates'][1], dfCandidato['coordinates'][i]['coordinates'][0]]).add_to(map)
 
 map.save(outfile='index.html') 
 
