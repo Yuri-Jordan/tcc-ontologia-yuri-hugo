@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_fc5903300b7745b6abf3b9d35d2683f8 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_fc5903300b7745b6abf3b9d35d2683f8" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_fc5903300b7745b6abf3b9d35d2683f8 = L.map(
+                                  'map_fc5903300b7745b6abf3b9d35d2683f8',
+                                  {center: [-15.681307,-47.939025],
+                                  zoom: 4,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_d8a566b2031e44f08c5217319843d11f = L.tileLayer(
+                'https://{s}.tiles.mapbox.com/v3/mapbox.world-bright/{z}/{x}/{y}.png',
+                {
+  "attribution": null, 
+  "detectRetina": false, 
+  "maxZoom": 18, 
+  "minZoom": 1, 
+  "noWrap": false, 
+  "subdomains": "abc"
+}
+                ).addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+        
+    
+
+            var marker_6f03a579f6524e3498a23173cdf12df0 = L.marker(
+                [-30.13173123,-51.3627469],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_65244424baaa44ee9d4cdeba8432c2a3 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6f03a579f6524e3498a23173cdf12df0.setIcon(icon_65244424baaa44ee9d4cdeba8432c2a3);
+            
+    
+            var popup_da1bd9e18e4447f6adb26af8cb7511f3 = L.popup({maxWidth: '300'});
+
+            
+                var html_3da5c94906d64f46bfbabfb35032121d = $('<div id="html_3da5c94906d64f46bfbabfb35032121d" style="width: 100.0%; height: 100.0%;">Up! (@ Gome&#39;s House in Guaíba, Rio Grande Do Sul) https://t.co/9HUl5tt6om</div>')[0];
+                popup_da1bd9e18e4447f6adb26af8cb7511f3.setContent(html_3da5c94906d64f46bfbabfb35032121d);
+            
+
+            marker_6f03a579f6524e3498a23173cdf12df0.bindPopup(popup_da1bd9e18e4447f6adb26af8cb7511f3);
+
+            
+        
+    
+
+            var marker_fcb218a3c86b4807bc0b402ae90ebe3b = L.marker(
+                [-30.14492836,-51.3233447],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_7b8ae803100f4ad9897357dc71958a52 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_fcb218a3c86b4807bc0b402ae90ebe3b.setIcon(icon_7b8ae803100f4ad9897357dc71958a52);
+            
+    
+            var popup_9176a59bf8d74eb6be03109f8dabe896 = L.popup({maxWidth: '300'});
+
+            
+                var html_67ad99ca2bbd466992bd1d5c12411783 = $('<div id="html_67ad99ca2bbd466992bd1d5c12411783" style="width: 100.0%; height: 100.0%;">I&#39;m at Super Bol in guaiba, rs w/ @_guilhermediias @edisonrm_ https://t.co/WhGkoibcvy</div>')[0];
+                popup_9176a59bf8d74eb6be03109f8dabe896.setContent(html_67ad99ca2bbd466992bd1d5c12411783);
+            
+
+            marker_fcb218a3c86b4807bc0b402ae90ebe3b.bindPopup(popup_9176a59bf8d74eb6be03109f8dabe896);
+
+            
+        
+    
+
+            var marker_106a782993cc4afeaaeb8e4b7febcd6e = L.marker(
+                [-0.04726045,-51.17422522],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_41b90b8fc90d4604936d20338c80bcfb = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_106a782993cc4afeaaeb8e4b7febcd6e.setIcon(icon_41b90b8fc90d4604936d20338c80bcfb);
+            
+    
+            var popup_c1225de3ca5042f298150006a5a42017 = L.popup({maxWidth: '300'});
+
+            
+                var html_94822312942a495e8f927a31d465ca6e = $('<div id="html_94822312942a495e8f927a31d465ca6e" style="width: 100.0%; height: 100.0%;">Dia de engordar (@ Casa Da Rafa 👸 w/ @saragardhenia @rafaelamatos_ap) https://t.co/6Pba3vtLXH</div>')[0];
+                popup_c1225de3ca5042f298150006a5a42017.setContent(html_94822312942a495e8f927a31d465ca6e);
+            
+
+            marker_106a782993cc4afeaaeb8e4b7febcd6e.bindPopup(popup_c1225de3ca5042f298150006a5a42017);
+
+            
+        
+    
+
+            var marker_00c2fba2f54c4281a5baee3eaaa88b18 = L.marker(
+                [-29.35123643,-51.56465786],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_dc4f9d30dcfa4924b7495d97cf2380f8 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_00c2fba2f54c4281a5baee3eaaa88b18.setIcon(icon_dc4f9d30dcfa4924b7495d97cf2380f8);
+            
+    
+            var popup_3d92fffd8bea485ea652525f2386814e = L.popup({maxWidth: '300'});
+
+            
+                var html_a9a7e367d27a4632b116f5d463e63b49 = $('<div id="html_a9a7e367d27a4632b116f5d463e63b49" style="width: 100.0%; height: 100.0%;">I&#39;m at Palafita&#39;s Restaurante in Carlos Barbosa, rs https://t.co/ye6O0rNj0C</div>')[0];
+                popup_3d92fffd8bea485ea652525f2386814e.setContent(html_a9a7e367d27a4632b116f5d463e63b49);
+            
+
+            marker_00c2fba2f54c4281a5baee3eaaa88b18.bindPopup(popup_3d92fffd8bea485ea652525f2386814e);
+
+            
+        
+    
+
+            var marker_a6de6835f6594aa79a80828146b21cd5 = L.marker(
+                [-23.49633667,-46.54407833],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_699f436e41a7470d9116a2eaf213996c = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a6de6835f6594aa79a80828146b21cd5.setIcon(icon_699f436e41a7470d9116a2eaf213996c);
+            
+    
+            var popup_612dfbb7dcad4652945dc69aad52a1f3 = L.popup({maxWidth: '300'});
+
+            
+                var html_715e2a16f9e44a97bc5483a89872507b = $('<div id="html_715e2a16f9e44a97bc5483a89872507b" style="width: 100.0%; height: 100.0%;">Vamos São Paulo https://t.co/EQVsBTscMi</div>')[0];
+                popup_612dfbb7dcad4652945dc69aad52a1f3.setContent(html_715e2a16f9e44a97bc5483a89872507b);
+            
+
+            marker_a6de6835f6594aa79a80828146b21cd5.bindPopup(popup_612dfbb7dcad4652945dc69aad52a1f3);
+
+            
+        
+    
+
+            var marker_6ad848e923464525875a5c091bac0816 = L.marker(
+                [-25.3894526,-51.4820457],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_095718f2a9844711ac03b2b22d6e1b92 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6ad848e923464525875a5c091bac0816.setIcon(icon_095718f2a9844711ac03b2b22d6e1b92);
+            
+    
+            var popup_9cf923dde67648d69b28e50e0f371189 = L.popup({maxWidth: '300'});
+
+            
+                var html_46363bb4b78f4bd4982377da12d54dc2 = $('<div id="html_46363bb4b78f4bd4982377da12d54dc2" style="width: 100.0%; height: 100.0%;">@vine_psilva. Em qual você vai migo?</div>')[0];
+                popup_9cf923dde67648d69b28e50e0f371189.setContent(html_46363bb4b78f4bd4982377da12d54dc2);
+            
+
+            marker_6ad848e923464525875a5c091bac0816.bindPopup(popup_9cf923dde67648d69b28e50e0f371189);
+
+            
+        
+    
+
+            var marker_6de4ede598c54728a08b70acc44df657 = L.marker(
+                [-25.3894526,-51.4820457],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_2fe0b61f617c45f9aa316750cc5336c2 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6de4ede598c54728a08b70acc44df657.setIcon(icon_2fe0b61f617c45f9aa316750cc5336c2);
+            
+    
+            var popup_3e0161d3fb694b268da0fff2d4ab3e04 = L.popup({maxWidth: '300'});
+
+            
+                var html_d1faeae692bc41d1b12e8eb60ef7e5d9 = $('<div id="html_d1faeae692bc41d1b12e8eb60ef7e5d9" style="width: 100.0%; height: 100.0%;">Hoje eu tava inspirada , fiz brownie e bolo de cenoura trufado</div>')[0];
+                popup_3e0161d3fb694b268da0fff2d4ab3e04.setContent(html_d1faeae692bc41d1b12e8eb60ef7e5d9);
+            
+
+            marker_6de4ede598c54728a08b70acc44df657.bindPopup(popup_3e0161d3fb694b268da0fff2d4ab3e04);
+
+            
+        
+    
+
+            var marker_18dd86487de141babc163b80b69b8ce3 = L.marker(
+                [-30.86245182,-51.80474231],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_b090e1c89d4d4adabb8b642c57df1b44 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_18dd86487de141babc163b80b69b8ce3.setIcon(icon_b090e1c89d4d4adabb8b642c57df1b44);
+            
+    
+            var popup_69bd5e98a47b494b942aeaf553834d09 = L.popup({maxWidth: '300'});
+
+            
+                var html_cd5323433feb4066ab9c5daed32b96a5 = $('<div id="html_cd5323433feb4066ab9c5daed32b96a5" style="width: 100.0%; height: 100.0%;">I&#39;m at Chacara Nunes in Camaquã, Rio Grande do Sul w/ @julyahmedeiros https://t.co/YpTEnExSjf</div>')[0];
+                popup_69bd5e98a47b494b942aeaf553834d09.setContent(html_cd5323433feb4066ab9c5daed32b96a5);
+            
+
+            marker_18dd86487de141babc163b80b69b8ce3.bindPopup(popup_69bd5e98a47b494b942aeaf553834d09);
+
+            
+        
+    
+
+            var marker_4979bc6ecb3d46aca565edacde1f298d = L.marker(
+                [-30.14492836,-51.3233447],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_f88aa4d1d5d4403d8b5ef52abc9a5f2a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_4979bc6ecb3d46aca565edacde1f298d.setIcon(icon_f88aa4d1d5d4403d8b5ef52abc9a5f2a);
+            
+    
+            var popup_0edddaffca954b5cba67e26d1f194705 = L.popup({maxWidth: '300'});
+
+            
+                var html_cc987aabb7484f34a6e9896e9e781d7a = $('<div id="html_cc987aabb7484f34a6e9896e9e781d7a" style="width: 100.0%; height: 100.0%;">I&#39;m at Super Bol in guaiba, rs w/ @_guilhermediias @ojrdias https://t.co/Kp99rJxzvm</div>')[0];
+                popup_0edddaffca954b5cba67e26d1f194705.setContent(html_cc987aabb7484f34a6e9896e9e781d7a);
+            
+
+            marker_4979bc6ecb3d46aca565edacde1f298d.bindPopup(popup_0edddaffca954b5cba67e26d1f194705);
+
+            
+        
+    
+
+            var marker_1e5d1f7fda034562a254cdf88a9e7179 = L.marker(
+                [0.05444176,-51.04884822],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_e48608649dc84417b8c0239a8fc64425 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_1e5d1f7fda034562a254cdf88a9e7179.setIcon(icon_e48608649dc84417b8c0239a8fc64425);
+            
+    
+            var popup_f1646e41fa3d4fdaa077d83eb761b950 = L.popup({maxWidth: '300'});
+
+            
+                var html_07a7c109bd984a1493a968570f3f0a79 = $('<div id="html_07a7c109bd984a1493a968570f3f0a79" style="width: 100.0%; height: 100.0%;">I&#39;m at Alê&#39;s House in Macapá, Amapá https://t.co/VQQANUA37u</div>')[0];
+                popup_f1646e41fa3d4fdaa077d83eb761b950.setContent(html_07a7c109bd984a1493a968570f3f0a79);
+            
+
+            marker_1e5d1f7fda034562a254cdf88a9e7179.bindPopup(popup_f1646e41fa3d4fdaa077d83eb761b950);
+
+            
+        
+    
+
+            var marker_0809a8d0adf34a37abb350d4f2e2e59a = L.marker(
+                [-30.11466,-51.3417731],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_0da12b8197984bed8e675f5670b86beb = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0809a8d0adf34a37abb350d4f2e2e59a.setIcon(icon_0da12b8197984bed8e675f5670b86beb);
+            
+    
+            var popup_48fa9330514d4b29829d7a67eb690e80 = L.popup({maxWidth: '300'});
+
+            
+                var html_75cc19727f774010b1aebf0a25afde84 = $('<div id="html_75cc19727f774010b1aebf0a25afde84" style="width: 100.0%; height: 100.0%;">I&#39;m at Klafke&#39;s House in Guaiba w/ @rafaelklafke_ https://t.co/kRUQ5iHXwz</div>')[0];
+                popup_48fa9330514d4b29829d7a67eb690e80.setContent(html_75cc19727f774010b1aebf0a25afde84);
+            
+
+            marker_0809a8d0adf34a37abb350d4f2e2e59a.bindPopup(popup_48fa9330514d4b29829d7a67eb690e80);
+
+            
+        
+    
+
+            var marker_efcb4f3f438449788a4a886da4c1cbfe = L.marker(
+                [-31.7786414,-52.350615],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_bdc4216316ed42e0ba7ffc7ac3e70555 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_efcb4f3f438449788a4a886da4c1cbfe.setIcon(icon_bdc4216316ed42e0ba7ffc7ac3e70555);
+            
+    
+            var popup_57443e712ea5464f8b85be2d869043d7 = L.popup({maxWidth: '300'});
+
+            
+                var html_01a2edd562ce442f83110ba428d681fc = $('<div id="html_01a2edd562ce442f83110ba428d681fc" style="width: 100.0%; height: 100.0%;">Pó comprei um lanche to vendo una filme de comédia com minha mãe, esses filme são um quadro tchê kkkk</div>')[0];
+                popup_57443e712ea5464f8b85be2d869043d7.setContent(html_01a2edd562ce442f83110ba428d681fc);
+            
+
+            marker_efcb4f3f438449788a4a886da4c1cbfe.bindPopup(popup_57443e712ea5464f8b85be2d869043d7);
+
+            
+        
+    
+
+            var marker_0bce5e40a9444a0e9dc962fd6b0d4962 = L.marker(
+                [-31.75,-52.33],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_0f3f7866792f4ba990667b9697746896 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0bce5e40a9444a0e9dc962fd6b0d4962.setIcon(icon_0f3f7866792f4ba990667b9697746896);
+            
+    
+            var popup_c4d9a208c53c45f792a4fcdb9b6d606e = L.popup({maxWidth: '300'});
+
+            
+                var html_fdb9a41f6ab14a29bd6e4670976ca644 = $('<div id="html_fdb9a41f6ab14a29bd6e4670976ca644" style="width: 100.0%; height: 100.0%;">scattered clouds -&amp;gt; light rain temperature down 14°C -&amp;gt; 13°C humidity up 62% -&amp;gt; 100% wind 7kmh -&amp;gt; 11kmh</div>')[0];
+                popup_c4d9a208c53c45f792a4fcdb9b6d606e.setContent(html_fdb9a41f6ab14a29bd6e4670976ca644);
+            
+
+            marker_0bce5e40a9444a0e9dc962fd6b0d4962.bindPopup(popup_c4d9a208c53c45f792a4fcdb9b6d606e);
+
+            
+        
+    
+
+            var marker_af5cec03edca4509ac79c69e3f50a478 = L.marker(
+                [-30.11961189,-51.3444431],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_91f88ac50812435aabd3f0ba36580fae = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_af5cec03edca4509ac79c69e3f50a478.setIcon(icon_91f88ac50812435aabd3f0ba36580fae);
+            
+    
+            var popup_c59ad37c842d4955ae208f2dcaa3cf9d = L.popup({maxWidth: '300'});
+
+            
+                var html_e89c287d92a84c35af6a8cd1dbbab566 = $('<div id="html_e89c287d92a84c35af6a8cd1dbbab566" style="width: 100.0%; height: 100.0%;">I&#39;m at Show de Gols in Guaiba, RS https://t.co/m3D82i9UIz</div>')[0];
+                popup_c59ad37c842d4955ae208f2dcaa3cf9d.setContent(html_e89c287d92a84c35af6a8cd1dbbab566);
+            
+
+            marker_af5cec03edca4509ac79c69e3f50a478.bindPopup(popup_c59ad37c842d4955ae208f2dcaa3cf9d);
+
+            
+        
+    
+
+            var marker_0f316020112443a3b6ba75e717048003 = L.marker(
+                [-25.3680559,-51.4845784],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_9ae95e7affd848f5b787b66c2494cfe4 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0f316020112443a3b6ba75e717048003.setIcon(icon_9ae95e7affd848f5b787b66c2494cfe4);
+            
+    
+            var popup_8bd2bbbb3d994529bae38c6294e95e04 = L.popup({maxWidth: '300'});
+
+            
+                var html_c7d04c0eb1cf47f7abc15cf400682bc2 = $('<div id="html_c7d04c0eb1cf47f7abc15cf400682bc2" style="width: 100.0%; height: 100.0%;">https://t.co/5Dp6O5miMA</div>')[0];
+                popup_8bd2bbbb3d994529bae38c6294e95e04.setContent(html_c7d04c0eb1cf47f7abc15cf400682bc2);
+            
+
+            marker_0f316020112443a3b6ba75e717048003.bindPopup(popup_8bd2bbbb3d994529bae38c6294e95e04);
+
+            
+        
+    
+
+            var marker_09c3c3697e6e415c8ed0cf1d3ebd5823 = L.marker(
+                [0.04453066,-51.05068921],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_dd63184dc4264e53a0fe010972d522a8 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_09c3c3697e6e415c8ed0cf1d3ebd5823.setIcon(icon_dd63184dc4264e53a0fe010972d522a8);
+            
+    
+            var popup_f5270d0ddc014d1c893d874ff37ad24a = L.popup({maxWidth: '300'});
+
+            
+                var html_f499b245c0594e7eba461748905de647 = $('<div id="html_f499b245c0594e7eba461748905de647" style="width: 100.0%; height: 100.0%;">I&#39;m at Escola de Danças DSM - @dancamacap in Macapá, Amapá https://t.co/LcTWL4GDFG</div>')[0];
+                popup_f5270d0ddc014d1c893d874ff37ad24a.setContent(html_f499b245c0594e7eba461748905de647);
+            
+
+            marker_09c3c3697e6e415c8ed0cf1d3ebd5823.bindPopup(popup_f5270d0ddc014d1c893d874ff37ad24a);
+
+            
+        
+    
+
+            var marker_aca564a287da4fb6a34c97638e112adc = L.marker(
+                [0.04372213,-51.05742125],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_15e37289ba61413f9ab0bc5d6d006635 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_aca564a287da4fb6a34c97638e112adc.setIcon(icon_15e37289ba61413f9ab0bc5d6d006635);
+            
+    
+            var popup_20e98a1f26f141cf8e67fd41a91e53e4 = L.popup({maxWidth: '300'});
+
+            
+                var html_f09b98178fd9426d9d9c3d8bfd05a02a = $('<div id="html_f09b98178fd9426d9d9c3d8bfd05a02a" style="width: 100.0%; height: 100.0%;">I&#39;m at @SebraeAP - Serviço de Apoio às Micro e Pequenas Empresas in Macapá, Amapá https://t.co/OEdQCtObjZ</div>')[0];
+                popup_20e98a1f26f141cf8e67fd41a91e53e4.setContent(html_f09b98178fd9426d9d9c3d8bfd05a02a);
+            
+
+            marker_aca564a287da4fb6a34c97638e112adc.bindPopup(popup_20e98a1f26f141cf8e67fd41a91e53e4);
+
+            
+        
+    
+
+            var marker_6b8f943526b94853bdf297988466f582 = L.marker(
+                [-30.1247579,-51.3422774],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_e14eb8b66bd3424d9f4dfe185acbe75b = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6b8f943526b94853bdf297988466f582.setIcon(icon_e14eb8b66bd3424d9f4dfe185acbe75b);
+            
+    
+            var popup_a85639ae8aa1412ea4943ebf7eb1321d = L.popup({maxWidth: '300'});
+
+            
+                var html_d970ebbd160c48dc93871651146a6630 = $('<div id="html_d970ebbd160c48dc93871651146a6630" style="width: 100.0%; height: 100.0%;">✌️ (@ Moradas da Colina in Guaíba, RS) https://t.co/aBT6foDiI1</div>')[0];
+                popup_a85639ae8aa1412ea4943ebf7eb1321d.setContent(html_d970ebbd160c48dc93871651146a6630);
+            
+
+            marker_6b8f943526b94853bdf297988466f582.bindPopup(popup_a85639ae8aa1412ea4943ebf7eb1321d);
+
+            
+        
+    
+
+            var marker_4e09b5664bd24daa94ad7b5fa4cbcaf2 = L.marker(
+                [-30.1136579,-51.33110259],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_fc5903300b7745b6abf3b9d35d2683f8);
+            
+    
+
+                var icon_7174f3e9e93641d79e1a2fa0f0f1b57b = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_4e09b5664bd24daa94ad7b5fa4cbcaf2.setIcon(icon_7174f3e9e93641d79e1a2fa0f0f1b57b);
+            
+    
+            var popup_383aa6dc93b44d69bca2cfdcea8208bc = L.popup({maxWidth: '300'});
+
+            
+                var html_9925cbfd723f4e3d81accacc2577e8aa = $('<div id="html_9925cbfd723f4e3d81accacc2577e8aa" style="width: 100.0%; height: 100.0%;">I&#39;m at Hospital Regional de Guaíba in Guaíba, RS https://t.co/x6kUvIX1kG</div>')[0];
+                popup_383aa6dc93b44d69bca2cfdcea8208bc.setContent(html_9925cbfd723f4e3d81accacc2577e8aa);
+            
+
+            marker_4e09b5664bd24daa94ad7b5fa4cbcaf2.bindPopup(popup_383aa6dc93b44d69bca2cfdcea8208bc);
+
+            
+        
+</script>

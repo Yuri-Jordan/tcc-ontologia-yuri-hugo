@@ -114,16 +114,38 @@ import folium
 import pandas
 import ast
 
-dfCandidato = pandas.read_csv("resultados/twitter/resultadoComSentimento.csv",index_col=0)
-df=pandas.read_csv("arquivosTeste/Volcanoes_USA.txt")
+dfCandidato = pandas.read_csv("resultados/twitter/resultadoComSentimento.csv",index_col=0, encoding='utf-8')
+data = pandas.read_json(open('./resultados/twitter/streamingTwitter.json'), lines=True)
 
-map=folium.Map(location=[df['LAT'].mean(),df['LON'].mean()],zoom_start=6,tiles='Mapbox bright')
+map=folium.Map(location=[-15.681307, -47.939025],zoom_start=4,tiles='Mapbox bright')
 
 for i in range(0, len(dfCandidato)):
+    
     if str(dfCandidato['coordinates'][i]) != 'nan':
+        
         dfCandidato['coordinates'][i] = ast.literal_eval(dfCandidato['coordinates'][i])
-        folium.Marker(location=[ dfCandidato['coordinates'][i]['coordinates'][1], dfCandidato['coordinates'][i]['coordinates'][0]]).add_to(map)
+        
+        corPonto = ''
+        
+        if dfCandidato['sentimento'][i] > 0:
+            corPonto = 'green'
+        elif dfCandidato['sentimento'][i] < 0:
+            corPonto = 'red'
+        else:
+            corPonto = 'blue'
+            
+        popup = folium.Popup(data['text'][i], parse_html=True)
+            
+        folium.Marker(
+            # primeiro longitude depois latitude
+            location=[ dfCandidato['coordinates'][i]['coordinates'][1], 
+                       dfCandidato['coordinates'][i]['coordinates'][0]
+                     ],
+            icon=folium.Icon(color=corPonto),
+            popup=popup,
+        ).add_to(map)
 
-map.save(outfile='index.html') 
+map.save(outfile='templates/mapa.html') 
+
 
 
