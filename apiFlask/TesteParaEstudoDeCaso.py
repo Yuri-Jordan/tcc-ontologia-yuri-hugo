@@ -70,7 +70,7 @@ class Listener(StreamListener):
 
     def on_data(self, data):
         print data
-        arquivo = open('./resultados/twitter/streamingTeste.json', 'a')
+        arquivo = open('./resultados/twitter/streamingTwitter.json', 'a')
         arquivo.write(data) 
         arquivo.write('\n')
         arquivo.close()
@@ -78,7 +78,7 @@ class Listener(StreamListener):
         return True
 
     def on_error(self, status):
-        arquivo = open('./resultados/twitter/streamingTeste.json', 'a')
+        arquivo = open('./resultados/twitter/streamingTwitter.json', 'a')
         arquivo.write(status) 
         arquivo.write('\n')
         arquivo.close()
@@ -87,23 +87,43 @@ class Listener(StreamListener):
 
 if __name__ == '__main__':
     
-    termos = ['luiz inacio lula da silva', 'jair bolsonaro', 'marina silva']
+    termos = ['luiz inacio lula da silva', 'jair bolsonaro', 'marina silva', 'ciro gomes', 'geraldo alckmin']
 
     listener = Listener()
     auth = OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
     stream = Stream(auth, listener)
-
-    stream.filter(track=termos)
+    # locations = coordenadas da amplitude territorial de coleta
+    # neste caso: Brasil.
+    # São passados dois parâmetros: longitude e latitude (nessa ordem) do sul ao norte 
+    stream.filter(track=termos, locations=[-52.875989,-31.754882,-51.469739,2.604407])
     
 #============= Dividir Streaming por pré-candidato ============================
 
 import pandas
-from analiseSentimental.analiseSentimental import limpar_texto_dataset
+from analiseSentimental.analiseSentimental import calcularSentimento, limpar_texto_streaming, definir_sentimento_dataset
+                                                  
+data = pandas.read_json(open('./resultados/twitter/streamingTwitter.json'), lines=True)
 
-corpus = limpar_texto_dataset(data, 'text', len(data))
- 
-data = pandas.read_json(open('./resultados/twitter/streamingTeste.json'), lines=True)
-likeSQL = a[a['text'].str.contains("Ruby|ruby")]    
+datasetLimpo = limpar_texto_streaming(data, 'text')
+
+dicionario = pandas.read_csv("arquivosTeste/sentilex-reduzido.txt", header=None)
+resultado = definir_sentimento_dataset(datasetLimpo, dicionario)
+
+lula = resultado[resultado['text'].str.contains("luiz|inacio|lula")]
+bolsonaro = resultado[resultado['text'].str.contains("jair|bolsonaro")]
+marina = resultado[resultado['text'].str.contains("marina|silva")]
+ciro = resultado[resultado['text'].str.contains("ciro|gomes")]
+geraldo = resultado[resultado['text'].str.contains("geraldo|alckmin")] 
+
+#============= Dados gegráficos ===============================================
+
+for i in range(0, len(data)):
+    
+    if data['coordinates'][i] != None:
+        print data['coordinates'][i]
+
+    print data['coordinates'][31]['coordinates'][0]
+    
 
 
